@@ -50,7 +50,7 @@ jobs:
             - name: Kustomize Build
               uses: karancode/kustomize-github-action@master
               with:
-                kustomize_version: '3.0.0'
+                kustomize_version: 'v5.3.0'
                 kustomize_build_dir: '/k8s'
                 kustomize_comment: true
                 kustomize_output_file: "k8s/rendered.yaml"
