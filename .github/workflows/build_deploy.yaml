@@ -19,7 +19,7 @@ on:
 
 jobs:
     Build:
-        runs-on: alx-hosted
+        runs-on: ubuntu-latest
         steps:
             - name: Print a greeting
               env:
@@ -39,8 +39,15 @@ jobs:
             - name: Run the Maven
               run: mvn clean install
 
-
     call-reusable-workflow:
+        needs: Build
+        uses: alexdesouzasilva/reusables/.github/workflows/docker.yaml@main
+        with:
+            username: ''
+            password: ''
+            version: ${{ github.sha }}
+
+    call-reusable-workflow2:
         needs: Build
         uses: alexdesouzasilva/reusables/.github/workflows/kustomize.yaml@main
         with:
