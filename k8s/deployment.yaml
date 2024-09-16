@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dvop-srv-consult-product
+spec:
+  selector:
+    matchLabels:
+      app: dvop-srv-consult-product
+  template:
+    metadata:
+      labels:
+        app: dvop-srv-consult-product
+    spec:
+      containers:
+      - name: dvop-srv-consult-product
+        image: alexsouzasilva/dvop-srv-consult-product:latest
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8082
