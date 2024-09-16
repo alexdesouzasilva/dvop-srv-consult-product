@@ -26,7 +26,6 @@ jobs:
                 MY_VAR: Hi, there! My name is
                 FIRST_NAME: Alex
                 LAST_NAME: Silva
-                PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
 
               run: |
                 echo  $MY_VAR $FIRST_NAME $LAST_NAME.
@@ -45,9 +44,11 @@ jobs:
         needs: Build
         uses: alexdesouzasilva/reusables/.github/workflows/docker.yaml@main
         with:
-            username: ${{ vars.DOCKERHUB_USERNAME }}
-            password: $PASSWORD
+            username: alexsouzasilva
             version: ${{ github.sha }}
+        secrets:
+            password: ${{ secrets.DOCKERHUB_TOKEN }}
+            
 
     call-reusable-workflow2:
         needs: Build
