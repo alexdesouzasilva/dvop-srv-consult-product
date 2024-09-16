@@ -19,7 +19,7 @@ on:
 
 jobs:
     Build:
-        runs-on: ubuntu-latest
+        runs-on: alx-hosted
         steps:
             - name: Print a greeting
               env:
